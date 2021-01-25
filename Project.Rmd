@@ -1,0 +1,50 @@
+---
+title: "Project RMI"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include=FALSE}
+source("Project RMI.R", local = knitr::knit_global())
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Introduction
+
+## Part 1
+
+For the first part of the project we will fit various parametric models to loss data with claim frequencies and compare model fits. We use the file NonFleetCo507.txt, which contains information on 159.947 insurance contracts. 
+
+First we need to import the data:
+
+```{r losses}
+str(losses)
+```
+
+The tibble contains data about the insured people (age of the insured, sex of the insured), experience (amount of loss that an insured party experiences compared to the amount of loss that similar insured parties have), and also has additional columns about the characteristics of the contract and the insured vehicle. Our target variables are the number of claims that were filed on the contract - loss frequency (Clm_Count) and the period of exposure during which the contract was active and the claim from Clm_Count was filed (TLength). 
+
+Let us look at the column Clm_Count. We get its empirical distribution with the following code:
+
+
